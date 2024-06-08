@@ -102,6 +102,13 @@ struct MoveOnly
 }
 mixin Foo!MoveOnly;
 
+struct MemberWithCtor
+{
+    int a;
+    CtorOnly m;
+}
+mixin Foo!MemberWithCtor;
+
 void main()
 {
     test!POD();
@@ -111,4 +118,5 @@ void main()
     test!Copy();
     test!CopyAndMove();
     test!MoveOnly();
+    test!MemberWithCtor();
 }
